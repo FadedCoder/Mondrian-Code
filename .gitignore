@@ -1,0 +1,19 @@
+####
+# Ignored binary and build folder
+*.o
+Debug/**
+Release/**
+x64/**
+.vs/**
+
+####
+# Visual Studio project Ignored files
+*.suo
+*.sdf
+*.opensdf
+*.user
+*.opendb
+*.sln
+*.db
+*.vcxproj
+*.filters
