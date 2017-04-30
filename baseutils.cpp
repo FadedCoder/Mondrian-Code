@@ -1,24 +1,25 @@
-/* Copyright 2017 Alexandru Bratosin,
- *                Sergey Popov,
- *                Sampriti Panda,
- *                Urtkash Dixit
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+#include <algorithm>
+#include <queue>
+#include "baseutils.h"
+using namespace std;
+using namespace cv;
 
-#include<algorithm>
-#include"baseutils.h"
+/* Function which splits a vector at index i
+Note: returned vectors have range [0; i) and [i, v.size()) */
+vector<vector<int>> splitVector(vector<int> v, int i)
+{
+    vector<vector<int>> out;
+    if (i > 0 && i < v.size() - 1)
+    {
+        vector<int> split_lo(v.begin(), v.begin() + i);
+        vector<int> split_hi(v.begin() + i, v.end());
+        out.push_back(split_lo);
+        out.push_back(split_hi);
+    }
+    return out;
+}
 
+/* Function which returns the digits of a number n in specified base */
 vector<int> toDigits(int n, int base)
 {
     vector<int> out;
@@ -37,6 +38,8 @@ vector<int> toDigits(int n, int base)
     reverse(out.begin(), out.end());
     return out;
 }
+
+/* Function which returns the number n in specified base from its digits */
 int fromDigits(vector<int> digits, int base)
 {
     int n = 0;
@@ -48,33 +51,112 @@ int fromDigits(vector<int> digits, int base)
     }
     return n;
 }
+
+/* Function which changes the base of a number from b to c */
 vector<int> convertBase(vector<int> digits, int b, int c)
 {
     return toDigits(fromDigits(digits, b), c);
 }
-vector<int> alpha_to_binary_int(const char &c)
+
+/* Function which returns the binary digits of a char as 1 vector */
+vector<int> charToBinary1V(const char &c)
 {
     vector<int> binary = toDigits((int)c, 2);
+    /* add padding */
+    while (binary.size() < 8)
+    {
+        binary.insert(binary.begin(), 0);
+    }
     return binary;
 }
-vector<vector<int>> alpha_to_binary_int2(const char &c)
+
+/* Function which splits the vector containing the digits of a char into 2 equal length vectors */
+vector<vector<int>> charToBinary2V(const char &c)
 {
-    vector<vector<int>> out;
-    vector<int> binary_half1 = toDigits((int)c >> 4, 2);
-    vector<int> binary_half2 = toDigits((int)c & 0xF, 2);
-    out.push_back(binary_half1);
-    out.push_back(binary_half2);
-    return out;
+    vector<int> bin = charToBinary1V(c);
+    return splitVector(bin, bin.size() / 2);
 }
-vector<vector<int>> string_to_binary_int2(const string &s)
+
+/* Function which splits the vector containing the digits of a char into 2 equal length vectors */
+vector<vector<int>> stringToBinary2V(const string &s)
 {
     vector<vector<int>> out;
     for (int i = 0; i < s.size(); i++)
     {
-        vector<int> binary_half1 = toDigits((int)s[i] >> 4, 2);
-        vector<int> binary_half2 = toDigits((int)s[i] & 0xF, 2);
-        out.push_back(binary_half1);
-        out.push_back(binary_half2);
+        vector<vector<int>> digits = charToBinary2V(s[i]);
+        out.push_back(digits[0]);
+        out.push_back(digits[1]);
     }
+    return out;
+}
+
+/* Function which checks if r1 is below r2 */
+bool below(Rectangle r1, Rectangle r2)
+{
+    if (r1.getPosition().y < r2.getPosition().y)
+    {
+        return true;
+    }
+    else if (r1.getPosition().y == r2.getPosition().y)
+    {
+        if (r1.getPosition().x < r2.getPosition().x)
+        {
+            return true;
+        }
+        return false;
+    }
+    return false;
+}
+
+/* Function which checks if r1 is above r2 */
+bool above(Rectangle r1, Rectangle r2)
+{
+    if (r1.getPosition().y > r2.getPosition().y)
+    {
+        return true;
+    }
+    else if (r1.getPosition().y == r2.getPosition().y)
+    {
+        if (r1.getPosition().x < r2.getPosition().x)
+        {
+            return true;
+        }
+        return false;
+    }
+    return false;
+}
+
+/* Function which splits a rectangle into multiple smaller rectangles *numberOfSplits* times */
+vector<Rectangle> splitRectangle(Rectangle rect, int numberOfSplits) /* the total number of rectangles will be + 1 */
+{
+    /* init queue*/
+    vector<Rectangle> out;
+    queue<Rectangle> rectQueue;
+    rectQueue.push(rect);
+
+    int count = 0; /* current number of splits */
+
+    while (count != numberOfSplits)
+    {
+        Rectangle rectangle = rectQueue.front();
+        rectQueue.pop();
+        vector<Rectangle> halves = rectangle.split();
+        rectQueue.push(halves[0]);
+        rectQueue.push(halves[1]);
+        count++;
+    }
+
+    /* create rectangle vector */
+    while (rectQueue.size() != 0)
+    {
+        out.push_back(rectQueue.front());
+        rectQueue.pop();
+    }
+
+    /* sort it based on the top-left corner of each rectangle.
+    if Y coords are equal, the rect with a smaller X is considered higher
+    Note: by default, (0, 0) is the top-left corner of the view */
+    sort(out.begin(), out.end(), below);
+
     return out;
 }
