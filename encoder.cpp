@@ -9,7 +9,8 @@ Encoder::Encoder()
 {
     predefinedColors.push_back(Color(0, 255, 255, 255, 255)); /* white */
     predefinedColors.push_back(Color(1, 255, 0, 0, 255)); /* red */
-    predefinedColors.push_back(Color(2, 0, 255, 0, 255)); /* green */
+    //predefinedColors.push_back(Color(2, 0, 255, 0, 255)); /* green */
+    predefinedColors.push_back(Color(2, 255, 255, 0, 255)); /* yellow */
     predefinedColors.push_back(Color(3, 0, 0, 255, 255)); /* blue */
 }
 
@@ -196,7 +197,7 @@ string Encoder::encodeAndOutputText(string &input)
 //}
 
 /* Function which encodes and renders an input text */
-Mat* Encoder::encodeAndRenderImage(string &input, RenderingInfo encInfo)
+Mat Encoder::encodeAndRenderImage(string &input, RenderingInfo encInfo)
 {
     vector<Color> colors = encode(input);
     int inputSize = input.size(); /* total number of bytes */
@@ -213,22 +214,15 @@ Mat* Encoder::encodeAndRenderImage(string &input, RenderingInfo encInfo)
     for (Rectangle& r : rectangles)
         r.shrinkRectangleByBorderWidth(halfBorderWidth);
 
-    Mat* output = new Mat(encInfo.outputSize[1], encInfo.outputSize[0], CV_8UC4, Scalar(0, 0, 0, 255));
+    Mat output(encInfo.outputSize[1], encInfo.outputSize[0], CV_8UC4, Scalar(0, 0, 0, 255));
 
     for (int i = 0; i < rectangles.size(); i++)
     {
         Rectangle currentRect = rectangles[i];
         Rect rect(currentRect.getPosition().x, currentRect.getPosition().y, currentRect.getSize()[0], currentRect.getSize()[1]);
         Scalar color = colors[i].getRGBA();
-        rectangle(*output, rect, color, -1);
+        rectangle(output, rect, color, -1);
     }
 
-    /////////////////////////////////////////////////////////////////////////////////////////////
-    namedWindow("Display window", WINDOW_AUTOSIZE);         // Create a window for display.
-    imshow("Display window", *output);                      // Show our image inside it.
-    waitKey(0);                                             // Wait for a keystroke in the window
-    /////////////////////////////////////////////////////////////////////////////////////////////
-
-    imwrite("ouput.png", *output);
     return output;
 }

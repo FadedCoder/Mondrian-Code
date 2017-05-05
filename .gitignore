@@ -17,3 +17,8 @@ x64/**
 *.db
 *.vcxproj
 *.filters
+
+####
+# Ignored output files
+*.png
+*.jpg

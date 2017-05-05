@@ -17,5 +17,5 @@ public:
     std::vector<Color> encode(const std::string &text);
     std::vector<Color> encodeBits(std::vector<std::vector<int>> bits);
     std::string Encoder::encodeAndOutputText(std::string &input);
-    cv::Mat* Encoder::encodeAndRenderImage(std::string &input, RenderingInfo encInfo);
+    cv::Mat Encoder::encodeAndRenderImage(std::string &input, RenderingInfo encInfo);
 };
