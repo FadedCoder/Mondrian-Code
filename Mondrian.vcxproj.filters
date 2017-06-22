@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Shape">
+      <UniqueIdentifier>{c5a35471-29b7-4941-9703-e899f498ff4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Colors">
+      <UniqueIdentifier>{8081fdac-aede-4933-b524-5601a35230cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utilities">
+      <UniqueIdentifier>{24cdcc0a-9e16-405a-b477-5340b1bff841}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\RenderingInfo">
+      <UniqueIdentifier>{a1e73d4d-aaf1-4b5e-a308-27b67a084e41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Encoder">
+      <UniqueIdentifier>{80c833ca-bd2e-43bf-9b5d-fdcb1a0f2f8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Colors">
+      <UniqueIdentifier>{41b469b1-77d1-41a2-a806-b6f0299529f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Encoder">
+      <UniqueIdentifier>{e14e2407-9db3-48f1-8bb5-2e4be938e4be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\RenderingInfo">
+      <UniqueIdentifier>{9e30baaa-846d-4d68-92f1-512de8b7a2d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shape">
+      <UniqueIdentifier>{5462478e-84a1-403a-86e8-bc55a5c41fa8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utilities">
+      <UniqueIdentifier>{aac328e3-f1f2-4861-876c-bab54b1153f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Decoder">
+      <UniqueIdentifier>{26493181-9f03-49d4-9bfd-1c5770b0926e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Decoder">
+      <UniqueIdentifier>{8ddd0ca7-7b1b-45ca-b746-1c6377584f3f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\source.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\baseutils.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\colors.cpp">
+      <Filter>Source Files\Colors</Filter>
+    </ClCompile>
+    <ClCompile Include="src\encoder.cpp">
+      <Filter>Source Files\Encoder</Filter>
+    </ClCompile>
+    <ClCompile Include="src\polygon.cpp">
+      <Filter>Source Files\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rectangle.cpp">
+      <Filter>Source Files\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="src\renderinginfo.cpp">
+      <Filter>Source Files\RenderingInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="src\decoder.cpp">
+      <Filter>Source Files\Decoder</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\baseutils.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\colors.h">
+      <Filter>Header Files\Colors</Filter>
+    </ClInclude>
+    <ClInclude Include="src\encoder.h">
+      <Filter>Header Files\Encoder</Filter>
+    </ClInclude>
+    <ClInclude Include="src\polygon.h">
+      <Filter>Header Files\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rectangle.h">
+      <Filter>Header Files\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="src\renderinginfo.h">
+      <Filter>Header Files\RenderingInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="src\splitdirection.h">
+      <Filter>Header Files\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="src\decoder.h">
+      <Filter>Header Files\Decoder</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

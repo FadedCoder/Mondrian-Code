@@ -2,6 +2,7 @@
 
 enum SplitDirection
 {
-    HORIZONTAL,
-    VERTICAL
+	HORIZONTAL,
+	VERTICAL,
+	NOT_DEFINED
 };
