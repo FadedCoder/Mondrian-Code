@@ -51,54 +51,54 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\source.cpp">
+    <ClCompile Include="..\src\source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\baseutils.cpp">
+    <ClCompile Include="..\src\baseutils.cpp">
       <Filter>Source Files\Utilities</Filter>
     </ClCompile>
-    <ClCompile Include="src\colors.cpp">
+    <ClCompile Include="..\src\colors.cpp">
       <Filter>Source Files\Colors</Filter>
     </ClCompile>
-    <ClCompile Include="src\encoder.cpp">
+    <ClCompile Include="..\src\encoder.cpp">
       <Filter>Source Files\Encoder</Filter>
     </ClCompile>
-    <ClCompile Include="src\polygon.cpp">
+    <ClCompile Include="..\src\polygon.cpp">
       <Filter>Source Files\Shape</Filter>
     </ClCompile>
-    <ClCompile Include="src\rectangle.cpp">
+    <ClCompile Include="..\src\rectangle.cpp">
       <Filter>Source Files\Shape</Filter>
     </ClCompile>
-    <ClCompile Include="src\renderinginfo.cpp">
+    <ClCompile Include="..\src\renderinginfo.cpp">
       <Filter>Source Files\RenderingInfo</Filter>
     </ClCompile>
-    <ClCompile Include="src\decoder.cpp">
+    <ClCompile Include="..\src\decoder.cpp">
       <Filter>Source Files\Decoder</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\baseutils.h">
+    <ClInclude Include="..\src\baseutils.h">
       <Filter>Header Files\Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="src\colors.h">
+    <ClInclude Include="..\src\colors.h">
       <Filter>Header Files\Colors</Filter>
     </ClInclude>
-    <ClInclude Include="src\encoder.h">
+    <ClInclude Include="..\src\encoder.h">
       <Filter>Header Files\Encoder</Filter>
     </ClInclude>
-    <ClInclude Include="src\polygon.h">
+    <ClInclude Include="..\src\polygon.h">
       <Filter>Header Files\Shape</Filter>
     </ClInclude>
-    <ClInclude Include="src\rectangle.h">
+    <ClInclude Include="..\src\rectangle.h">
       <Filter>Header Files\Shape</Filter>
     </ClInclude>
-    <ClInclude Include="src\renderinginfo.h">
+    <ClInclude Include="..\src\renderinginfo.h">
       <Filter>Header Files\RenderingInfo</Filter>
     </ClInclude>
-    <ClInclude Include="src\splitdirection.h">
+    <ClInclude Include="..\src\splitdirection.h">
       <Filter>Header Files\Shape</Filter>
     </ClInclude>
-    <ClInclude Include="src\decoder.h">
+    <ClInclude Include="..\src\decoder.h">
       <Filter>Header Files\Decoder</Filter>
     </ClInclude>
   </ItemGroup>

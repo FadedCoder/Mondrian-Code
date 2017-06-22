@@ -20,7 +20,7 @@ int main()
 	do
 	{
 		Mat rendered = encoder.encodeAndRenderImage(input, RenderingInfo(Size2i(1000, 700), 8));
-		cout << decoder.decode(rendered) << endl;
+		cout << "Decoded: " << decoder.decode(rendered) << endl;
 		imshow("Output", rendered);
 		waitKey(0);
 		imwrite("output.png", rendered);

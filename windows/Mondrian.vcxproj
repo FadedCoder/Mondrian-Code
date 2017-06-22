@@ -19,24 +19,24 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\decoder.cpp" />
-    <ClCompile Include="src\baseutils.cpp" />
-    <ClCompile Include="src\colors.cpp" />
-    <ClCompile Include="src\encoder.cpp" />
-    <ClCompile Include="src\polygon.cpp" />
-    <ClCompile Include="src\rectangle.cpp" />
-    <ClCompile Include="src\renderinginfo.cpp" />
-    <ClCompile Include="src\source.cpp" />
+    <ClCompile Include="..\src\decoder.cpp" />
+    <ClCompile Include="..\src\baseutils.cpp" />
+    <ClCompile Include="..\src\colors.cpp" />
+    <ClCompile Include="..\src\encoder.cpp" />
+    <ClCompile Include="..\src\polygon.cpp" />
+    <ClCompile Include="..\src\rectangle.cpp" />
+    <ClCompile Include="..\src\renderinginfo.cpp" />
+    <ClCompile Include="..\src\source.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\decoder.h" />
-    <ClInclude Include="src\baseutils.h" />
-    <ClInclude Include="src\colors.h" />
-    <ClInclude Include="src\encoder.h" />
-    <ClInclude Include="src\polygon.h" />
-    <ClInclude Include="src\rectangle.h" />
-    <ClInclude Include="src\renderinginfo.h" />
-    <ClInclude Include="src\splitdirection.h" />
+    <ClInclude Include="..\src\decoder.h" />
+    <ClInclude Include="..\src\baseutils.h" />
+    <ClInclude Include="..\src\colors.h" />
+    <ClInclude Include="..\src\encoder.h" />
+    <ClInclude Include="..\src\polygon.h" />
+    <ClInclude Include="..\src\rectangle.h" />
+    <ClInclude Include="..\src\renderinginfo.h" />
+    <ClInclude Include="..\src\splitdirection.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{E4167D8C-2EDC-4BD5-89AB-782D26ADDD52}</ProjectGuid>
